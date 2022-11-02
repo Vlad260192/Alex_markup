@@ -27,7 +27,12 @@ export function pageNavigation() {
 				const noHeader = gotoLink.hasAttribute('data-goto-header') ? true : false;
 				const gotoSpeed = gotoLink.dataset.gotoSpeed ? gotoLink.dataset.gotoSpeed : 500;
 				const offsetTop = gotoLink.dataset.gotoTop ? parseInt(gotoLink.dataset.gotoTop) : 0;
-				gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
+				if (flsModules.fullpage) {
+					const fullpageSectionId = +document.querySelector(`${gotoLinkSelector}[data-fp-section]`).dataset.fpId;
+					flsModules.fullpage.switchingSection(fullpageSectionId);
+				} else {
+					gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
+				}
 				e.preventDefault();
 			}
 		} else if (e.type === "watcherCallback" && e.detail) {

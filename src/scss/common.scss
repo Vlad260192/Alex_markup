@@ -3,6 +3,12 @@
 .page {
     &__main {}
     &__services {}
+    &__portfolio {}
+    &__career {}
+    &__blog {}
+    &__testimonials {}
+    &__skills {}
+    &__contacts {}
 }
 
 //========================================================================================================================================================
@@ -26,11 +32,10 @@
             transform: translateY(-50%);
             width: rem(16);
             height: rem(2);
-            background-color: #D9D9D9;
-            &:not(:last-child) {
-                margin-bottom: em(9, 12);
-            }
-            
+            background-color: #D9D9D9;   
+        }
+        &:not(:last-child) {
+            margin-bottom: em(9, 12);
         }
     }
 
@@ -38,16 +43,16 @@
         text-transform: capitalize;
         font-family: "Plus Jakarta Sans";
         font-weight: 700;
-        font-size: rem(36);
         line-height: math.div( 45, 36);
+        @include adaptiveValue("font-size", 36, 28);
 
         span {
             color: $purpleColor;
         }
 
         &_big {
-            font-size: rem(44);
             line-height: math.div(55.44, 44);
+            @include adaptiveValue("font-size", 44, 36);
         }
     }
 }
@@ -79,4 +84,37 @@
             }
         }
     }
+}
+
+//========================================================================================================================================================
+
+.category-link {
+    display: inline-block;
+    border: 1px solid #f1f1f1;
+    border-radius: rem(4);
+    color: $greyColor;
+    font-size: rem(12);
+    padding: rem(4) rem(8);
+    line-height: math.div(15, 12);
+    transition: all 0.4s ease 0s;
+    @media (any-hover: hover){
+        &:hover{
+            color: #fff;
+            background-color: $purpleColor;
+            border: 1px solid $purpleColor;
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+.date {
+    background-color: #fbfbfb;
+    border-radius: rem(4);
+    padding: rem(4) rem(8);
+    display: inline-block;
+    color: $greyColor;
+    font-size: rem(12);
+    line-height: math.div( 15, 12);
+    font-weight: 500;
 }
