@@ -262,7 +262,7 @@
             transition: transform 0.7s ease 0s;
         }
         @media (any-hover: hover){
-            &:hover{
+            &:hover{   
                 opacity: 1;
                 img {
                     transform: scale(1.05);
